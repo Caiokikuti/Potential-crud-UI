@@ -4,7 +4,7 @@
   "description": "A minimal react boilerplate with webpack, babel and sass support.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./config/webpack/webpack.dev.js --mode development --open --hot",
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --content-base --config ./config/webpack/webpack.dev.js --mode development --open --hot",
     "build": "cross-env NODE_ENV=production webpack -p --config ./config/webpack/webpack.prod.js",
     "lint:eslint": "eslint . && echo \"No lint errors!\" && exit 0",
     "lint:eslint:fix": "eslint . --fix && echo \"Lint errors fixed!\" && exit 0",
@@ -27,7 +27,6 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/pickers": "^3.2.10",
-    "elentari": "^2.0.121-gr",
     "express-async-errors": "^3.1.1",
     "express-json-error-handler": "^4.0.0",
     "final-form": "^4.20.2",

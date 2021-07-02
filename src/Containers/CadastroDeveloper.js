@@ -12,7 +12,7 @@ const CadastroDeveloper = () => {
   const history = useHistory()
   const params = useParams()
   const [formValues, setFormValues] = useState({})
-  const [aluno, setAluno] = useState({})
+  const [dev, setdev] = useState({})
 
   const validation = (formValues) => {
     function isNumber(n) {
@@ -43,20 +43,20 @@ const CadastroDeveloper = () => {
 
   useEffect(() => {
     if (params.id === 'new') {
-      setAluno({})
+      setdev({})
     } else {
       api
         .getDesenvolvedor(params.id)
-        .then((r) => setAluno(r))
-        .catch(() => setAluno({}))
+        .then((r) => setdev(r))
+        .catch(() => setdev({}))
     }
   }, [])
 
   const handleSubmit = (formValues) => {
     formValues.idade = parseInt(formValues.idade)
-    if (formValues.id) {
+    if (dev.id) {
       api
-        .updateDesenvolvedor(formValues.id)
+        .updateDesenvolvedor(formValues)
         .then(() => {
           alert('mudado com sucesso!')
         })
@@ -80,7 +80,7 @@ const CadastroDeveloper = () => {
       <Form
         onSubmit={handleSubmit}
         validate={validation}
-        initialValues={aluno}
+        initialValues={dev}
         render={({ handleSubmit, form }) => (
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>

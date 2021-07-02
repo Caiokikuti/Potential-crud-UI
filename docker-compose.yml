@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    container_name: dockerized-potential-crud-final
+    build: .
+    ports:
+      - '8080:8080'
+    volumes:
+      - .:/usr/src/app

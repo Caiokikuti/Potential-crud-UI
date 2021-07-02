@@ -24,7 +24,7 @@ function App() {
       <Router>
         <Route
           exact
-          path='/developer'
+          path='/'
           render={(props) => <Login setLogado={setLogged} />}
         />
         <Route

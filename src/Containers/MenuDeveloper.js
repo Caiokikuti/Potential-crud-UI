@@ -102,7 +102,10 @@ const MenuDeveloper = () => {
       />
       <Grid container spacing={10}>
         <Grid item xs={12}>
-          <TabelaEstudante developers={developers} />
+          <TabelaEstudante
+            developers={developers}
+            setDevelopers={setDevelopers}
+          />
         </Grid>
       </Grid>
       <Grid container spacing={3}>

@@ -14,7 +14,7 @@ import Link from '@material-ui/core/Link'
 import api from '../services/api'
 import { useState, useEffect } from 'react'
 import { withRouter, useHistory } from 'react-router-dom'
-const TabelaEstudante = ({ developers }) => {
+const TabelaEstudante = ({ developers, setDevelopers }) => {
   const history = useHistory()
   const handleClickEdit = (id) => {
     history.push(`/developer/${id}`)
@@ -24,9 +24,7 @@ const TabelaEstudante = ({ developers }) => {
     api
       .deleteDeveloper(id)
       .then(() => {
-        setTimeout(() => {
-          history.push('/developer')
-        }, 1000)
+        setDevelopers(developers.filter((dev) => dev.id !== id))
       })
       .catch((err) => alert(err.message))
   }
